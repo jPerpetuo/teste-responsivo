@@ -193,14 +193,48 @@
   bottom: 0.13%;
 }
 
-.desktop-graphics img,
-.mobile-graphics img {
+.wave-row-image {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   max-width: 100%;
+  object-fit: fill;
+}
+
+.wave-row-pieces {
+  position: absolute;
+  inset: 0;
+}
+
+.wave-piece {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.wave-piece-left {
+  left: 0;
+  width: 26.117%;
+}
+
+.wave-piece-middle {
+  left: 26.117%;
+  width: 48.206%;
+}
+
+.wave-piece-right {
+  left: 74.323%;
+  width: 25.677%;
+}
+
+.wave-piece-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: fill;
 }
 
