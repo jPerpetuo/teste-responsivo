@@ -30,7 +30,11 @@ function App() {
 
             <div className="help-area">
               <div className="divider" />
-              <button type="button" className="btn btn-secondary">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => window.open('https://atendimento.ccead.puc-rio.br/', '_blank', 'noopener,noreferrer')}
+              >
                 <img src={imgHelpCircle} alt="" aria-hidden="true" />
                 <span>Solicitar atendimento</span>
               </button>
