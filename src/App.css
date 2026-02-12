@@ -172,30 +172,36 @@
   pointer-events: none;
 }
 
+.wave-segment {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.wave-segment-a {
+  top: 0.09%;
+  bottom: 60.03%;
+}
+
+.wave-segment-b {
+  top: 30.04%;
+  bottom: 30.08%;
+}
+
+.wave-segment-c {
+  top: 60%;
+  bottom: 0.13%;
+}
+
 .desktop-graphics img,
 .mobile-graphics img {
   position: absolute;
+  inset: 0;
   display: block;
-  left: 0;
-  transform: none;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
-}
-
-.desktop-graphics img:nth-child(1),
-.mobile-graphics img:nth-child(1) {
-  top: 0;
-}
-
-.desktop-graphics img:nth-child(2),
-.mobile-graphics img:nth-child(2) {
-  top: 30%;
-}
-
-.desktop-graphics img:nth-child(3),
-.mobile-graphics img:nth-child(3) {
-  top: 60%;
+  object-fit: fill;
 }
 
 .mobile-graphics {

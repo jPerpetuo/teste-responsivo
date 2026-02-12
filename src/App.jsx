@@ -38,9 +38,15 @@ function App() {
           </div>
 
           <div className="mobile-graphics" aria-hidden="true">
-            <img src={imgWaveMobileA} alt="" />
-            <img src={imgWaveMobileB} alt="" />
-            <img src={imgWaveMobileC} alt="" />
+            <div className="wave-segment wave-segment-a">
+              <img src={imgWaveMobileA} alt="" />
+            </div>
+            <div className="wave-segment wave-segment-b">
+              <img src={imgWaveMobileB} alt="" />
+            </div>
+            <div className="wave-segment wave-segment-c">
+              <img src={imgWaveMobileC} alt="" />
+            </div>
           </div>
         </section>
 
@@ -49,9 +55,15 @@ function App() {
         </aside>
 
         <div className="desktop-graphics" aria-hidden="true">
-          <img src={imgWaveA} alt="" />
-          <img src={imgWaveB} alt="" />
-          <img src={imgWaveC} alt="" />
+          <div className="wave-segment wave-segment-a">
+            <img src={imgWaveA} alt="" />
+          </div>
+          <div className="wave-segment wave-segment-b">
+            <img src={imgWaveB} alt="" />
+          </div>
+          <div className="wave-segment wave-segment-c">
+            <img src={imgWaveC} alt="" />
+          </div>
         </div>
       </main>
     </div>
