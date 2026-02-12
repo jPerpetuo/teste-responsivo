@@ -170,8 +170,12 @@
 .desktop-graphics img,
 .mobile-graphics img {
   position: absolute;
-  width: 100%;
-  left: 0;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: auto;
+  max-width: none;
 }
 
 .desktop-graphics img:nth-child(1),
