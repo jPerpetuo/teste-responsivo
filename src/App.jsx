@@ -7,17 +7,17 @@ const imgHelpCircle = 'https://www.figma.com/api/mcp/asset/8737a6c7-9867-4aac-a2
 const variants = [
   {
     id: '01',
-    mode: 'rows',
-    foto: 'https://www.figma.com/api/mcp/asset/bd3def73-14c9-4f1d-ac2b-503d2a0ff011',
+    mode: 'pieces',
+    foto: '/imgs/variantes/foto-01.png',
     grafismoDesktop: [
-      'https://www.figma.com/api/mcp/asset/d9622a63-8451-4610-8cb7-e15e947ee02f',
-      'https://www.figma.com/api/mcp/asset/3d19f5e1-c2fa-48c4-939d-3a6a86f524e9',
-      'https://www.figma.com/api/mcp/asset/85910afe-1f7e-43ea-b36a-9d087ce67876',
+      '/imgs/variantes/grafismo-01-a.svg',
+      '/imgs/variantes/grafismo-01-b.svg',
+      '/imgs/variantes/grafismo-01-c.svg',
     ],
     grafismoMobile: [
-      'https://www.figma.com/api/mcp/asset/5de4cbd5-1096-430d-bf41-55311faa6e15',
-      'https://www.figma.com/api/mcp/asset/6ac9cdb1-e026-434b-8ae0-edeb66fea9d8',
-      'https://www.figma.com/api/mcp/asset/4a0ffe5b-5776-4a22-8c27-7ce197c86965',
+      '/imgs/variantes/grafismo-01-a.svg',
+      '/imgs/variantes/grafismo-01-b.svg',
+      '/imgs/variantes/grafismo-01-c.svg',
     ],
   },
   {
@@ -42,24 +42,44 @@ function selectVariant(previousId) {
   return options[Math.floor(Math.random() * options.length)]
 }
 
-function WaveSegmentContent({ variant, sources }) {
+function WaveGraphics({ variant, mobile = false }) {
+  const sources = mobile ? variant.grafismoMobile : variant.grafismoDesktop
+
   if (variant.mode === 'pieces') {
     return (
-      <div className="wave-row-pieces">
-        <div className="wave-piece wave-piece-left">
-          <img src={sources[0]} alt="" className="wave-piece-image" />
+      <div className="wave-columns">
+        <div className="wave-column wave-column-left">
+          <img src={sources[0]} alt="" className="wave-piece-row wave-piece-row-1" />
+          <img src={sources[0]} alt="" className="wave-piece-row wave-piece-row-2" />
+          <img src={sources[0]} alt="" className="wave-piece-row wave-piece-row-3" />
         </div>
-        <div className="wave-piece wave-piece-middle">
-          <img src={sources[1]} alt="" className="wave-piece-image" />
+        <div className="wave-column wave-column-middle">
+          <img src={sources[1]} alt="" className="wave-piece-row wave-piece-row-1" />
+          <img src={sources[1]} alt="" className="wave-piece-row wave-piece-row-2" />
+          <img src={sources[1]} alt="" className="wave-piece-row wave-piece-row-3" />
         </div>
-        <div className="wave-piece wave-piece-right">
-          <img src={sources[2]} alt="" className="wave-piece-image" />
+        <div className="wave-column wave-column-right">
+          <img src={sources[0]} alt="" className="wave-piece-row wave-piece-row-1 wave-piece-mirror" />
+          <img src={sources[0]} alt="" className="wave-piece-row wave-piece-row-2 wave-piece-mirror" />
+          <img src={sources[0]} alt="" className="wave-piece-row wave-piece-row-3 wave-piece-mirror" />
         </div>
       </div>
     )
   }
 
-  return <img src={sources} alt="" className="wave-row-image" />
+  return (
+    <>
+      <div className="wave-segment wave-segment-a">
+        <img src={sources[0]} alt="" className="wave-row-image" />
+      </div>
+      <div className="wave-segment wave-segment-b">
+        <img src={sources[1]} alt="" className="wave-row-image" />
+      </div>
+      <div className="wave-segment wave-segment-c">
+        <img src={sources[2]} alt="" className="wave-row-image" />
+      </div>
+    </>
+  )
 }
 
 function App() {
@@ -73,7 +93,7 @@ function App() {
   }, [currentVariant.id])
 
   return (
-    <div className="page" data-node-id="2002:7695">
+    <div className={`page variant-${currentVariant.mode}`} data-node-id="2002:7695">
       <main className="layout">
         <section className="left-panel">
           <div className="login-shell">
@@ -103,15 +123,7 @@ function App() {
           </div>
 
           <div className="mobile-graphics" aria-hidden="true">
-            <div className="wave-segment wave-segment-a">
-              <WaveSegmentContent variant={currentVariant} sources={currentVariant.mode === 'pieces' ? currentVariant.grafismoMobile : currentVariant.grafismoMobile[0]} />
-            </div>
-            <div className="wave-segment wave-segment-b">
-              <WaveSegmentContent variant={currentVariant} sources={currentVariant.mode === 'pieces' ? currentVariant.grafismoMobile : currentVariant.grafismoMobile[1]} />
-            </div>
-            <div className="wave-segment wave-segment-c">
-              <WaveSegmentContent variant={currentVariant} sources={currentVariant.mode === 'pieces' ? currentVariant.grafismoMobile : currentVariant.grafismoMobile[2]} />
-            </div>
+            <WaveGraphics variant={currentVariant} mobile />
           </div>
         </section>
 
@@ -120,15 +132,7 @@ function App() {
         </aside>
 
         <div className="desktop-graphics" aria-hidden="true">
-          <div className="wave-segment wave-segment-a">
-            <WaveSegmentContent variant={currentVariant} sources={currentVariant.mode === 'pieces' ? currentVariant.grafismoDesktop : currentVariant.grafismoDesktop[0]} />
-          </div>
-          <div className="wave-segment wave-segment-b">
-            <WaveSegmentContent variant={currentVariant} sources={currentVariant.mode === 'pieces' ? currentVariant.grafismoDesktop : currentVariant.grafismoDesktop[1]} />
-          </div>
-          <div className="wave-segment wave-segment-c">
-            <WaveSegmentContent variant={currentVariant} sources={currentVariant.mode === 'pieces' ? currentVariant.grafismoDesktop : currentVariant.grafismoDesktop[2]} />
-          </div>
+          <WaveGraphics variant={currentVariant} />
         </div>
       </main>
     </div>

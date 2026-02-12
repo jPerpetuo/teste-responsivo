@@ -203,49 +203,64 @@
   object-fit: fill;
 }
 
-.wave-row-pieces {
+.wave-columns {
   position: absolute;
   inset: 0;
 }
 
-.wave-piece {
+.wave-column {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  height: 100%;
 }
 
-.wave-piece-left {
+.wave-column-left {
   left: 0;
   width: 26.117%;
 }
 
-.wave-piece-middle {
+.wave-column-middle {
   left: 26.117%;
-  width: 48.206%;
+  width: 47.766%;
 }
 
-.wave-piece-right {
-  left: 74.323%;
-  width: 25.677%;
+.wave-column-right {
+  left: 73.883%;
+  width: 26.117%;
 }
 
-.wave-piece-image {
+.wave-piece-row {
   position: absolute;
-  inset: 0;
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: fill;
+  height: auto;
+  max-width: 100%;
 }
+
+.wave-piece-mirror {
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
+.wave-column-left .wave-piece-row-1 { top: 0.09%; }
+.wave-column-left .wave-piece-row-2 { top: 30.04%; }
+.wave-column-left .wave-piece-row-3 { top: 60%; }
+
+.wave-column-middle .wave-piece-row-1 { top: 4.48%; }
+.wave-column-middle .wave-piece-row-2 { top: 34.44%; }
+.wave-column-middle .wave-piece-row-3 { top: 64.39%; }
+
+.wave-column-right .wave-piece-row-1 { top: 0.77%; }
+.wave-column-right .wave-piece-row-2 { top: 30.72%; }
+.wave-column-right .wave-piece-row-3 { top: 60.67%; }
 
 .mobile-graphics {
   display: none;
   position: absolute;
-  width: min(90vw, 720px);
-  aspect-ratio: 720 / 450;
+  width: min(120vw, 720px);
+  aspect-ratio: 561 / 350;
   height: auto;
   left: 50%;
-  bottom: -310px;
+  top: calc(100% - clamp(220px, 34vw, 320px));
   transform: translateX(-50%);
   opacity: 0.95;
 }
@@ -284,11 +299,17 @@
 
   .mobile-graphics {
     display: block;
-    bottom: -250px;
   }
 
   .desktop-graphics {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-graphics {
+    width: max(120vw, 430px);
+    top: calc(100% - 240px);
   }
 }
 
