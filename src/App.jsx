@@ -1,14 +1,14 @@
 ﻿import './App.css'
 
-const imgFoto = 'https://www.figma.com/api/mcp/asset/d5689778-07f7-4f24-8d5f-ed3b025d5629'
-const imgBrasao = 'https://www.figma.com/api/mcp/asset/975ed05b-d03c-4671-aeac-2fd8d83f0b7e'
-const imgHelpCircle = 'https://www.figma.com/api/mcp/asset/997e8098-2589-470b-824b-3791cf8d5681'
-const imgWaveA = 'https://www.figma.com/api/mcp/asset/05712b20-cb61-4753-bbc1-b94c1b79dbf3'
-const imgWaveB = 'https://www.figma.com/api/mcp/asset/a0b396a1-f533-4634-9519-c7007d22f2ab'
-const imgWaveC = 'https://www.figma.com/api/mcp/asset/d8cd2195-5b1f-4beb-82f4-df8f3c249cc6'
-const imgWaveMobileA = 'https://www.figma.com/api/mcp/asset/8f41ff05-b1f3-4555-927f-b69815454b65'
-const imgWaveMobileB = 'https://www.figma.com/api/mcp/asset/b8e26a3c-ea16-400f-b2f8-09b558efafd4'
-const imgWaveMobileC = 'https://www.figma.com/api/mcp/asset/7c0a64e1-6d6f-4284-a426-eac20479b298'
+const imgFoto = 'https://www.figma.com/api/mcp/asset/bd3def73-14c9-4f1d-ac2b-503d2a0ff011'
+const imgBrasao = 'https://www.figma.com/api/mcp/asset/f17e4957-c81e-4d17-a4ca-020bd4ebfb0d'
+const imgHelpCircle = 'https://www.figma.com/api/mcp/asset/8737a6c7-9867-4aac-a242-aa8a4274ea3d'
+const imgWaveA = 'https://www.figma.com/api/mcp/asset/d9622a63-8451-4610-8cb7-e15e947ee02f'
+const imgWaveB = 'https://www.figma.com/api/mcp/asset/3d19f5e1-c2fa-48c4-939d-3a6a86f524e9'
+const imgWaveC = 'https://www.figma.com/api/mcp/asset/85910afe-1f7e-43ea-b36a-9d087ce67876'
+const imgWaveMobileA = 'https://www.figma.com/api/mcp/asset/5de4cbd5-1096-430d-bf41-55311faa6e15'
+const imgWaveMobileB = 'https://www.figma.com/api/mcp/asset/6ac9cdb1-e026-434b-8ae0-edeb66fea9d8'
+const imgWaveMobileC = 'https://www.figma.com/api/mcp/asset/4a0ffe5b-5776-4a22-8c27-7ce197c86965'
 
 function App() {
   return (
@@ -46,12 +46,13 @@ function App() {
 
         <aside className="right-panel" aria-hidden="true">
           <img src={imgFoto} alt="" className="hero" />
-          <div className="desktop-graphics">
-            <img src={imgWaveA} alt="" />
-            <img src={imgWaveB} alt="" />
-            <img src={imgWaveC} alt="" />
-          </div>
         </aside>
+
+        <div className="desktop-graphics" aria-hidden="true">
+          <img src={imgWaveA} alt="" />
+          <img src={imgWaveB} alt="" />
+          <img src={imgWaveC} alt="" />
+        </div>
       </main>
     </div>
   )

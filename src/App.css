@@ -15,6 +15,8 @@
 .layout {
   min-height: 100dvh;
   display: flex;
+  position: relative;
+  overflow: hidden;
 }
 
 .left-panel {
@@ -160,12 +162,14 @@
 
 .desktop-graphics {
   position: absolute;
-  width: min(72vw, 1128px);
-  aspect-ratio: 1128 / 701;
+  width: 833px;
+  aspect-ratio: 833 / 518;
   height: auto;
-  left: 58%;
-  bottom: -350px;
-  transform: translateX(-50%);
+  left: calc(50% + 376.5px);
+  top: calc(50% + 380px);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .desktop-graphics img,
@@ -207,11 +211,6 @@
 }
 
 @media (max-width: 1100px) {
-  .desktop-graphics {
-    width: min(80vw, 980px);
-    bottom: -300px;
-  }
-
   .left-panel {
     padding: 72px 24px 80px;
   }
@@ -246,5 +245,18 @@
   .mobile-graphics {
     display: block;
     bottom: -250px;
+  }
+
+  .desktop-graphics {
+    display: none;
+  }
+}
+
+@media (min-width: 1461px) {
+  .desktop-graphics {
+    width: 1128px;
+    aspect-ratio: 1128 / 701;
+    left: calc(50% + 469px);
+    top: calc(50% + 507.5px);
   }
 }
